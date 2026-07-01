@@ -1,0 +1,24 @@
+{
+  "//": "Add this to your MCP client config (e.g. Claude Desktop's claude_desktop_config.json).",
+  "//read-only": "Omit ROUTER_ALLOW_WRITE/EXEC to keep the server read-only.",
+  "mcpServers": {
+    "router": {
+      "command": "npx",
+      "args": ["-y", "@subashgautam/router-mcp", "serve"],
+      "env": {
+        "ROUTER_ADAPTER": "openwrt",
+        "ROUTER_HOST": "192.168.1.1",
+        "ROUTER_USER": "root",
+        "ROUTER_PASSWORD": "your-router-password",
+        "ROUTER_ALLOW_WRITE": "1"
+      }
+    },
+    "router-demo-no-hardware": {
+      "command": "npx",
+      "args": ["-y", "@subashgautam/router-mcp", "serve"],
+      "env": {
+        "ROUTER_ADAPTER": "mock"
+      }
+    }
+  }
+}

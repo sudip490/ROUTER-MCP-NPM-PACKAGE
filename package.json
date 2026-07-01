@@ -1,0 +1,74 @@
+{
+  "name": "@subashgautam/router-mcp",
+  "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Model Context Protocol (MCP) server + CLI to monitor and control WiFi routers from an AI assistant. Pluggable adapters; ships with OpenWrt (SSH/ubus) and a mock backend.",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "router-mcp": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./adapters/openwrt": {
+      "types": "./dist/adapters/openwrt.d.ts",
+      "import": "./dist/adapters/openwrt.js"
+    },
+    "./adapters/mock": {
+      "types": "./dist/adapters/mock.d.ts",
+      "import": "./dist/adapters/mock.js"
+    }
+  },
+  "files": [
+    "dist",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsx src/cli.ts",
+    "start": "node dist/cli.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "model-context-protocol",
+    "mcp-server",
+    "router",
+    "wifi",
+    "wireless",
+    "openwrt",
+    "network",
+    "networking",
+    "ssh",
+    "claude",
+    "ai",
+    "llm",
+    "cli"
+  ],
+  "author": "SwiftTech <backend@swifttech.com.np>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "node-ssh": "^13.2.1",
+    "zod": "^3.25.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
